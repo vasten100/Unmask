@@ -38,7 +38,8 @@ public class GameManager : MonoBehaviour
                 if (tempTarget.CompareTag("Positive"))
                 {
                     SetTarget(tempTarget);
-                    prevPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    //prevPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    prevPos = Input.mousePosition;
                 }
                 else if (tempTarget.CompareTag("Negative"))
                 {
@@ -75,7 +76,7 @@ public class GameManager : MonoBehaviour
                         if (tempTarget.CompareTag("Positive"))
                         {
                             SetTarget(tempTarget);
-                            prevPos = Camera.main.ScreenToWorldPoint(touch.position);
+                            prevPos = touch.position;
                         }
                         else if (tempTarget.CompareTag("Negative"))
                         {
@@ -100,7 +101,6 @@ public class GameManager : MonoBehaviour
                     break;
             }
         }
-
         GameLoop();
     }
 
@@ -147,7 +147,7 @@ public class GameManager : MonoBehaviour
 
     private void MoveTarget(Vector3 position)
     {
-        Vector3 currentPos = Camera.main.ScreenToWorldPoint(position);
+        Vector3 currentPos = position;
         Vector3 velocity = currentPos - prevPos;
         currentTarget.transform.position += velocity * Time.deltaTime * moveSpeed;
         prevPos = currentPos;
