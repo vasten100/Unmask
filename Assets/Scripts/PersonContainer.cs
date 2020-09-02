@@ -18,6 +18,17 @@ public class PersonContainer : MonoBehaviour
         startMask = maskTransform.localPosition;
     }
 
+    private void OnEnable()
+    {
+        SetDanger(Random.value > 0.25f);
+    }
+
+    /// <summary>
+    /// not used Yet Should change Sprites
+    /// </summary>
+    /// <param name="mask"></param>
+    /// <param name="head"></param>
+    /// <param name="body"></param>
     public void SetVisuals(Sprite mask,Sprite head, Sprite body)
     {
         Mask.sprite = mask;

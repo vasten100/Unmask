@@ -2,15 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GameState
+{
+    menu,
+    inGame,
+    dead
+}
 public class GameManager : MonoBehaviour
 {
-    public float moveSpeed = 1f;
+    public GameState currentState;
+    [Space]
+    [Header("Mask Movement")]
+    public float maskSwipeSpeed = 1f;
     public float velocityMultiplyer = 2f;
-    public AnimationCurve difficultyCurve;
+    [Space]
+    [Header("Difficulty")]
+    [Tooltip("Set the MoveSpeed over time; x = speed, y = ingameTime")]public AnimationCurve peopleSpeedCurve;
+    [Tooltip("Set the spawn cooldown over time; x = spawnrate, y = ingameTime")] public AnimationCurve peopleSpawnCooldownCurve;
+    public float cooldownRange = 2f;
+    [Space]
+    [Header("People Movement")]
     public Vector3 moveDirection = Vector3.forward;
     public float zSpawnDepth = 20f;
+    [Space]
+    [Header("Health Visuals")]
+    public HealthSystem healthSystem;
 
-    public GameObject currentTarget;
+    public int Score;
+
+
+    private GameObject currentTarget;
+    private bool isSpawning = false;
     private Rigidbody targetRb;
     private Vector3 prevPos = Vector3.zero;
     private ObjectPooler objectPooler;
@@ -20,12 +42,13 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         objectPooler = ObjectPooler.Instance;
-        ingameTime = 0f;
+        StartRound();
     }
 
     // Update is called once per frame
     void Update()
     {
+        #region Input & Mask Movement
 #if UNITY_EDITOR
         //Mouse Input
         if (Input.GetMouseButtonDown(0))
@@ -37,25 +60,27 @@ public class GameManager : MonoBehaviour
                 GameObject tempTarget = hitInfo.collider.gameObject;
                 if (tempTarget.CompareTag("Positive"))
                 {
-                    SetTarget(tempTarget);
+                    SetMaskTarget(tempTarget);
                     //prevPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     prevPos = Input.mousePosition;
                 }
                 else if (tempTarget.CompareTag("Negative"))
                 {
                     NegativeFeedback();
+                    SetMaskTarget(tempTarget);
+                    prevPos = Input.mousePosition;
                 }
             }
         }
 
         if (Input.GetMouseButton(0) && currentTarget != null)
         {
-            MoveTarget(Input.mousePosition);
+            MoveMaskTarget(Input.mousePosition);
         }
 
         if (Input.GetMouseButtonUp(0))
         {
-            RemoveTarget();
+            RemoveMaskTarget();
         }
 #endif
 
@@ -74,12 +99,15 @@ public class GameManager : MonoBehaviour
                         GameObject tempTarget = hitInfo.collider.gameObject;
                         if (tempTarget.CompareTag("Positive"))
                         {
-                            SetTarget(tempTarget);
+                            SetMaskTarget(tempTarget);
                             prevPos = touch.position;
+                            Score++;
                         }
                         else if (tempTarget.CompareTag("Negative"))
                         {
                             NegativeFeedback();
+                            SetMaskTarget(tempTarget);
+                            prevPos = touch.position;
                         }
                     }
                     break;
@@ -87,42 +115,69 @@ public class GameManager : MonoBehaviour
                 case TouchPhase.Moved:
                     if(currentTarget != null)
                     {
-                        MoveTarget(touch.position);
+                        MoveMaskTarget(touch.position);
                     }
                     break;
                     //on exit
                 case TouchPhase.Ended:
-                    RemoveTarget();
+                    RemoveMaskTarget();
                     break;
 
                 case TouchPhase.Canceled:
-                    RemoveTarget();
+                    RemoveMaskTarget();
                     break;
             }
         }
+        #endregion
         GameLoop();
+        //StateUpdate(currentState);
     }
 
     private void GameLoop()
     {
         ingameTime += Time.deltaTime;
-        float currentSpeed = difficultyCurve.Evaluate(ingameTime);
+        float currentSpeed = peopleSpeedCurve.Evaluate(ingameTime);
         //backwards iteration through active people
         for (int i = activePeople.Count; i-- > 0;)
         {
             GameObject person = activePeople[i];
-            //movement
-            person.transform.position += moveDirection * (currentSpeed + (i * 0.5f)) * Time.deltaTime;
+            //movement of the people
+            person.transform.position += moveDirection * currentSpeed * Time.deltaTime;
             //check if out of Range
             if (person.transform.position.z < 0)
             {
                 RemovePerson(person);
-                //temporary instant respawn
-                AddPerson();
             }
         }
     }
 
+    /// <summary>
+    /// creates a coroutine which runs on its separate "thread" is more performant than running in update. Handles spawning of people
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator SpawnDelay()
+    {
+        isSpawning = true;
+        float currentTime = 0f;
+        while(currentState == GameState.inGame)
+        {
+            //samples current mincooldown from curve
+            float minTime = peopleSpawnCooldownCurve.Evaluate(currentTime);
+            //adds a random time to the spawn time
+            float waitTime = minTime + Random.Range(0, cooldownRange);
+            //adds time to past time for next evaluation
+            currentTime += waitTime;
+            //waits for set time
+            yield return new WaitForSeconds(waitTime);
+            AddPerson();
+        }
+        isSpawning = false;
+    }
+
+
+    /// <summary>
+    /// adds a new Person to the game from the objectPooler
+    /// </summary>
     public void AddPerson()
     {
         GameObject newPerson = objectPooler.SpawnFromPool("Person", new Vector3(Random.Range(-5,5),0,zSpawnDepth), Quaternion.identity);
@@ -131,7 +186,10 @@ public class GameManager : MonoBehaviour
             activePeople.Add(newPerson);
         }
     }
-
+    /// <summary>
+    /// removes the Gameobject "person" from the activePeople List and disables the gameobject
+    /// </summary>
+    /// <param name="person"></param>
     private void RemovePerson(GameObject person)
     {
         if (activePeople.Contains(person))
@@ -147,24 +205,48 @@ public class GameManager : MonoBehaviour
         person.SetActive(false);
     }
 
-    private void MoveTarget(Vector3 position)
+    /// <summary>
+    /// deactivates all active people and resets them for further uses
+    /// </summary>
+    public void ResetAllPeople()
+    {
+        for (int i = activePeople.Count; i-- > 0;)
+        {
+            RemovePerson(activePeople[i]);
+        }
+    }
+
+    /// <summary>
+    /// moves the current selected target by the traveled distance of the position - previous position
+    /// </summary>
+    /// <param name="position">current Position of Mouse/Touch. Gets saved as prevPos</param>
+    private void MoveMaskTarget(Vector3 position)
     {
         Vector3 currentPos = position;
         Vector3 velocity = currentPos - prevPos;
-        currentTarget.transform.position += velocity * Time.deltaTime * moveSpeed;
+        currentTarget.transform.position += velocity * Time.deltaTime * maskSwipeSpeed;
         prevPos = currentPos;
     }
-
-    public void SetTarget(GameObject newTarget)
+    /// <summary>
+    /// set current selected target to newTarget
+    /// </summary>
+    /// <param name="newTarget"></param>
+    public void SetMaskTarget(GameObject newTarget)
     {
         currentTarget = newTarget;
         targetRb = newTarget.GetComponent<Rigidbody>();
         if (targetRb == null) return;
+        if(!targetRb.isKinematic)
+        {
+            currentTarget = null;
+        }
         targetRb.useGravity = false;
         targetRb.isKinematic = false;
     }
-
-    public void RemoveTarget()
+    /// <summary>
+    /// sets current target to null and enables unity Physics system for the mask
+    /// </summary>
+    public void RemoveMaskTarget()
     {
         currentTarget = null;
         if (targetRb == null) return;
@@ -173,8 +255,89 @@ public class GameManager : MonoBehaviour
         targetRb = null;
     }
 
+    /// <summary>
+    /// starts a new Round, resets nessesary variables
+    /// </summary>
+    public void StartRound()
+    {
+        ingameTime = 0f;
+        currentState = GameState.inGame;
+        //check if timer is active
+        if (!isSpawning)
+        {
+            //starts timer for spawning the people
+            StartCoroutine(SpawnDelay());
+        }
+    }
+
     public void NegativeFeedback()
     {
         Debug.Log("Ups");
+        if(healthSystem.TakeDamage() <= 0)
+        {
+            ResetGame();
+            //TransitionToState(GameState.dead);
+        }
     }
+
+    public void ResetGame()
+    {
+        ResetAllPeople();
+        healthSystem.ResetHealth();
+        //TransitionToState(GameState.dead);
+    }
+
+    #region StateMachine
+    public void TransitionToState(GameState newState)
+    {
+        StateExit(currentState);
+        currentState = newState;
+        StateEnter(currentState);
+    }
+
+    public void StateEnter(GameState newState)
+    {
+        switch (newState)
+        {
+            case GameState.menu:
+                break;
+            case GameState.inGame:
+                StartRound();
+                break;
+            case GameState.dead:
+                ResetGame();
+                break;
+        }
+    }
+    public void StateExit(GameState newState)
+    {
+        switch (newState)
+        {
+            case GameState.menu:
+                break;
+            case GameState.inGame:
+                ResetGame();
+                break;
+            case GameState.dead:
+                break;
+        }
+    }
+
+    public void StateUpdate(GameState newState)
+    {
+        switch (newState)
+        {
+            case GameState.menu:
+                break;
+            case GameState.inGame:
+
+                GameLoop();
+
+                break;
+            case GameState.dead:
+                break;
+        }
+    }
+    #endregion
+
 }
