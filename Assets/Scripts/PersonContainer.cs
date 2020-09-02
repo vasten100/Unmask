@@ -25,6 +25,10 @@ public class PersonContainer : MonoBehaviour
         Body.sprite = body;
     }
 
+    /// <summary>
+    /// Sets the Tag of the wearer
+    /// </summary>
+    /// <param name="danger"> true = Positive, false = Negative</param>
     public void SetDanger(bool danger)
     {
         if (danger)
@@ -38,7 +42,9 @@ public class PersonContainer : MonoBehaviour
             Mask.color = Color.red;
         }
     }
-
+    /// <summary>
+    /// resets Mask to default Position
+    /// </summary>
     public void ResetMask()
     {
         maskRb.velocity = Vector3.zero;

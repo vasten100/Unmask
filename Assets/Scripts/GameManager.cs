@@ -64,10 +64,9 @@ public class GameManager : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0);
 
-            //on enter
             switch (touch.phase)
             {
-
+                //on enter
                 case TouchPhase.Began:
                     Ray ray = Camera.main.ScreenPointToRay(touch.position);
                     if(Physics.Raycast(ray,out RaycastHit hitInfo))
@@ -84,14 +83,14 @@ public class GameManager : MonoBehaviour
                         }
                     }
                     break;
-
+                    //on move
                 case TouchPhase.Moved:
                     if(currentTarget != null)
                     {
                         MoveTarget(touch.position);
                     }
                     break;
-
+                    //on exit
                 case TouchPhase.Ended:
                     RemoveTarget();
                     break;
@@ -108,15 +107,17 @@ public class GameManager : MonoBehaviour
     {
         ingameTime += Time.deltaTime;
         float currentSpeed = difficultyCurve.Evaluate(ingameTime);
-
+        //backwards iteration through active people
         for (int i = activePeople.Count; i-- > 0;)
         {
             GameObject person = activePeople[i];
+            //movement
             person.transform.position += moveDirection * (currentSpeed + (i * 0.5f)) * Time.deltaTime;
             //check if out of Range
             if (person.transform.position.z < 0)
             {
                 RemovePerson(person);
+                //temporary instant respawn
                 AddPerson();
             }
         }
@@ -137,6 +138,7 @@ public class GameManager : MonoBehaviour
         {
             activePeople.Remove(person);
         }
+        //resets Mask to default Position
         PersonContainer container = person.GetComponent<PersonContainer>();
         if(container != null)
         {
