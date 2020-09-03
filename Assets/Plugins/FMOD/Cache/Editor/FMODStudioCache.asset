@@ -58,7 +58,7 @@ MonoBehaviour:
   Path: event:/Applause
   guid: b68814b4b202544a95634d376ca11dee
   Banks:
-  - {fileID: 5828715459628636813}
+  - {fileID: 409713491272678969}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -66,6 +66,23 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1872
+--- !u!114 &-4848864518118606530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/HealthPathing/health
+  m_EditorClassIdentifier: 
+  Name: health
+  Min: 0
+  Max: 3
+  Default: 3
+  Exists: 1
 --- !u!114 &-2318296603715570827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,18 +121,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 4876179507727678264}
-  - {fileID: 5828715459628636813}
+  - {fileID: 409713491272678969}
   EditorEvents:
   - {fileID: 2590722090454654972}
   - {fileID: 1659529691730666751}
   - {fileID: -6938729556554984984}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 5828715459628636813}
+  - {fileID: 409713491272678969}
   StringsBanks:
   - {fileID: 4876179507727678264}
-  stringsBankWriteTime: 637347439706083988
+  stringsBankWriteTime: 637347451859218944
   cacheVersion: 3
+--- !u!114 &409713491272678969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Banks/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637347451859009511
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &805704233090527975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +189,7 @@ MonoBehaviour:
   Path: event:/Mask Removed
   guid: 9b8c9305b864bf4c9517e8abdfe9f9f4
   Banks:
-  - {fileID: 5828715459628636813}
+  - {fileID: 409713491272678969}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -178,7 +213,7 @@ MonoBehaviour:
   Min: 0
   Max: 3
   Default: 3
-  Exists: 1
+  Exists: 0
 --- !u!114 &2590722090454654972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,12 +229,12 @@ MonoBehaviour:
   Path: event:/HealthPathing
   guid: 5d501bf871057948be41dceade3d61ff
   Banks:
-  - {fileID: 5828715459628636813}
+  - {fileID: 409713491272678969}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 2500982138760188592}
+  - {fileID: -4848864518118606530}
   MinDistance: 0
   MaxDistance: 0
   Length: 0
@@ -217,7 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Banks/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637347439706083988
+  lastModified: 637347451859218944
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -240,7 +275,7 @@ MonoBehaviour:
   lastModified: 637347439706006597
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &7834783232223536418
 MonoBehaviour:
   m_ObjectHideFlags: 0
