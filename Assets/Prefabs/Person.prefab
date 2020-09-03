@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 103936059300165513}
   - component: {fileID: 473783343793133346}
+  - component: {fileID: 8168787951109301545}
   m_Layer: 0
   m_Name: Person
   m_TagString: Person
@@ -49,6 +50,26 @@ MonoBehaviour:
   Mask: {fileID: 8024065528552333649}
   Head: {fileID: 6730484355120240279}
   Body: {fileID: 9164103695533124966}
+  isPositive: 0
+--- !u!95 &8168787951109301545
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4406150621678647119}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 09e6f412510681e40877529657284ec2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4617345908479809076
 GameObject:
   m_ObjectHideFlags: 0

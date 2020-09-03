@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     [Header("Health Visuals")]
     public HealthSystem healthSystem;
 
-    public int Score;
+    public IntVariable Score;
 
 
     private GameObject currentTarget;
@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
                     SetMaskTarget(tempTarget);
                     prevPos = Input.mousePosition;
                     startPos = prevPos;
-                    Score++;
+                    Score.ApplyChange(1);
                 }
                 else if (tempTarget.CompareTag("Negative"))
                 {
@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour
                             SetMaskTarget(tempTarget);
                             prevPos = touch.position;
                             startPos = prevPos;
-                            Score++;
+                            Score.ApplyChange(1);
                         }
                         else if (tempTarget.CompareTag("Negative"))
                         {

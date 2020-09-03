@@ -9,6 +9,10 @@ public class PersonContainer : MonoBehaviour
     private Rigidbody maskRb;
     private Transform maskTransform;
     private Vector3 startMask;
+    private Animator animator;
+
+    private int animMaskX = Animator.StringToHash("maskPositionX"),
+        animMaskY = Animator.StringToHash("maskPositionY");
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +21,14 @@ public class PersonContainer : MonoBehaviour
         maskRb = tempMask.GetComponent<Rigidbody>();
         maskTransform = tempMask.transform;
         startMask = maskTransform.localPosition;
+        animator = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        Vector3 maskMovement = maskTransform.localPosition - startMask;
+        animator.SetFloat(animMaskX, maskMovement.x);
+        animator.SetFloat(animMaskY, maskMovement.y);
     }
 
     private void OnEnable()

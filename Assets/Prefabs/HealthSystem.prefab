@@ -211,8 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHealth: 3
-  currentHealth: 0
-  spriteRenderer: {fileID: 0}
+  currentHealth: {fileID: 11400000, guid: 3c3a57ee9d7e78747b8494f410117a35, type: 2}
   healthPartsVisuals:
   - {fileID: 6420690004494030113}
   - {fileID: 6420690003415591255}
