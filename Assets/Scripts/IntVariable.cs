@@ -20,4 +20,9 @@ public class IntVariable : ScriptableObject
     {
         value += amount;
     }
+
+    private void OnEnable()
+    {
+        hideFlags = HideFlags.DontUnloadUnusedAsset;
+    }
 }
