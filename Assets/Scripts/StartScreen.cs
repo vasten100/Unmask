@@ -7,6 +7,7 @@ public class StartScreen : MonoBehaviour
 {
     public void loadScene(string sceneName)
     {
+
         SceneManager.LoadScene(sceneName);
     }
 }
