@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthSystem : MonoBehaviour
 {
@@ -23,6 +24,11 @@ public class HealthSystem : MonoBehaviour
         if(currentHealth < healthPartsVisuals.Length)
         {
             healthPartsVisuals[currentHealth].SetActive(false);
+        }
+        //change to end scene if health is 0
+        if(currentHealth == 0)
+        {
+            SceneManager.LoadScene("EndScreen");
         }
         return currentHealth;
     }

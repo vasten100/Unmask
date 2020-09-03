@@ -8,4 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Start Screen.unity
+    guid: 80c5cc33473ae1c48bcd3876a1d5b1d7
+  - enabled: 1
+    path: Assets/Scenes/Scene1.unity
+    guid: 396d477286b6b6a4d8ab1045cf05773c
+  - enabled: 1
+    path: Assets/Scenes/MorenoScene.unity
+    guid: f79da2d143a6be5418e1d29ea13cf307
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: dd777067fda49de44a6fb5e9cc00d136
   m_configObjects: {}
