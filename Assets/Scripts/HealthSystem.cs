@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class HealthSystem : MonoBehaviour
 {
     public int startHealth = 3;
-    public IntVariable currentHealth;
+    public int currentHealth;
     [Tooltip("low to high - highest gets disabled first")]public GameObject[] healthPartsVisuals;
 
     public void Start()
@@ -19,18 +19,18 @@ public class HealthSystem : MonoBehaviour
     /// <returns></returns>
     public int TakeDamage()
     {
-        currentHealth.ApplyChange(-1);
+        currentHealth -= 1;
         //deactivates highest active object of the List
-        if(currentHealth.value < healthPartsVisuals.Length)
+        if(currentHealth < healthPartsVisuals.Length && currentHealth != 0)
         {
-            healthPartsVisuals[currentHealth.value].SetActive(false);
+            healthPartsVisuals[currentHealth].SetActive(false);
         }
         //change to end scene if health is 0
-        if(currentHealth.value == 0)
+        if(currentHealth == 0)
         {
-            SceneManager.LoadScene("EndScreen");
+            SceneManager.LoadScene("EndScene");
         }
-        return currentHealth.value;
+        return currentHealth;
     }
 
     /// <summary>
@@ -38,7 +38,7 @@ public class HealthSystem : MonoBehaviour
     /// </summary>
     public void ResetHealth()
     {
-        currentHealth.SetValue(startHealth);
+        currentHealth = startHealth;
         foreach (GameObject visuals in healthPartsVisuals)
         {
             visuals.SetActive(true);
