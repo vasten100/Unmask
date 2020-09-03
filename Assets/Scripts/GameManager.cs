@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     private bool isSpawning = false;
     private Rigidbody targetRb;
     private Vector3 prevPos = Vector3.zero;
+    private Vector3 startPos;
     private ObjectPooler objectPooler;
     private List<GameObject> activePeople = new List<GameObject>();
     private float ingameTime = 0f;
@@ -61,14 +62,16 @@ public class GameManager : MonoBehaviour
                 if (tempTarget.CompareTag("Positive"))
                 {
                     SetMaskTarget(tempTarget);
-                    //prevPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     prevPos = Input.mousePosition;
+                    startPos = prevPos;
+                    Score++;
                 }
                 else if (tempTarget.CompareTag("Negative"))
                 {
                     NegativeFeedback();
                     SetMaskTarget(tempTarget);
                     prevPos = Input.mousePosition;
+                    startPos = prevPos;
                 }
             }
         }
@@ -101,6 +104,7 @@ public class GameManager : MonoBehaviour
                         {
                             SetMaskTarget(tempTarget);
                             prevPos = touch.position;
+                            startPos = prevPos;
                             Score++;
                         }
                         else if (tempTarget.CompareTag("Negative"))
@@ -108,6 +112,7 @@ public class GameManager : MonoBehaviour
                             NegativeFeedback();
                             SetMaskTarget(tempTarget);
                             prevPos = touch.position;
+                            startPos = prevPos;
                         }
                     }
                     break;
@@ -200,7 +205,10 @@ public class GameManager : MonoBehaviour
         PersonContainer container = person.GetComponent<PersonContainer>();
         if(container != null)
         {
-            container.ResetMask();
+            if (!container.ResetMask() && container.isPositive)
+            {
+                NegativeFeedback();
+            }
         }
         person.SetActive(false);
     }
@@ -250,6 +258,8 @@ public class GameManager : MonoBehaviour
     {
         currentTarget = null;
         if (targetRb == null) return;
+        Vector3 velocity = (prevPos - startPos).normalized;
+        targetRb.velocity += velocity * velocityMultiplyer;
         targetRb.isKinematic = false;
         targetRb.useGravity = true;
         targetRb = null;

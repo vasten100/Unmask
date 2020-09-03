@@ -1043,7 +1043,7 @@ MonoBehaviour:
   moveDirection: {x: 0, y: 0, z: -1}
   zSpawnDepth: 20
   healthSystem: {fileID: 1691359650}
-  currentTarget: {fileID: 0}
+  Score: 0
 --- !u!4 &1512326926
 Transform:
   m_ObjectHideFlags: 0
@@ -1506,15 +1506,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6420690004400534801, guid: f195b19252023ea49a3b1fb6427c9f17, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6420690004400534801, guid: f195b19252023ea49a3b1fb6427c9f17, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6420690004400534801, guid: f195b19252023ea49a3b1fb6427c9f17, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6420690004400534801, guid: f195b19252023ea49a3b1fb6427c9f17, type: 3}
       propertyPath: m_LocalRotation.w

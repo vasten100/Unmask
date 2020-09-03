@@ -5,6 +5,7 @@ using UnityEngine;
 public class PersonContainer : MonoBehaviour
 {
     public SpriteRenderer Mask, Head, Body;
+    public bool isPositive;
     private Rigidbody maskRb;
     private Transform maskTransform;
     private Vector3 startMask;
@@ -42,6 +43,7 @@ public class PersonContainer : MonoBehaviour
     /// <param name="danger"> true = Positive, false = Negative</param>
     public void SetDanger(bool danger)
     {
+        isPositive = danger;
         if (danger)
         {
             Mask.gameObject.tag = "Positive";
@@ -54,13 +56,15 @@ public class PersonContainer : MonoBehaviour
         }
     }
     /// <summary>
-    /// resets Mask to default Position
+    /// resets Mask to default Position returns true if mask got moved
     /// </summary>
-    public void ResetMask()
+    public bool ResetMask()
     {
         maskRb.velocity = Vector3.zero;
         maskRb.isKinematic = true;
+        if (maskTransform.localPosition == startMask) return false;
         maskTransform.localPosition = startMask;
         maskTransform.rotation = Quaternion.identity;
+        return true;
     }
 }
