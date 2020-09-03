@@ -7,6 +7,8 @@ TagManager:
   - Positive
   - Negative
   - Person
+  - Score
+  - Deathrate
   layers:
   - Default
   - TransparentFX
