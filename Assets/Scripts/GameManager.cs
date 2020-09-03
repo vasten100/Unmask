@@ -271,6 +271,7 @@ public class GameManager : MonoBehaviour
     public void StartRound()
     {
         ingameTime = 0f;
+        Score.SetValue(0);
         currentState = GameState.inGame;
         //check if timer is active
         if (!isSpawning)
@@ -294,6 +295,7 @@ public class GameManager : MonoBehaviour
     {
         ResetAllPeople();
         healthSystem.ResetHealth();
+        Score.SetValue(0);
         //TransitionToState(GameState.dead);
     }
 
