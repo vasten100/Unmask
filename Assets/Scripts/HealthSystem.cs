@@ -21,14 +21,14 @@ public class HealthSystem : MonoBehaviour
     {
         currentHealth -= 1;
         //deactivates highest active object of the List
-        if(currentHealth < healthPartsVisuals.Length)
+        if(currentHealth < healthPartsVisuals.Length && currentHealth != 0)
         {
             healthPartsVisuals[currentHealth].SetActive(false);
         }
         //change to end scene if health is 0
         if(currentHealth == 0)
         {
-            SceneManager.LoadScene("EndScreen");
+            SceneManager.LoadScene("EndScene");
         }
         return currentHealth;
     }
