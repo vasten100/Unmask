@@ -558,6 +558,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1337347102}
   score: {fileID: 11400000, guid: aa0f26d737077bc4087556177e63a7a9, type: 2}
+  deaths: 0
+  deathrate: {fileID: 1949343299}
+  delayTime: 0.08
 --- !u!1 &1517294627
 GameObject:
   m_ObjectHideFlags: 0

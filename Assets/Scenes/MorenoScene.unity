@@ -453,7 +453,7 @@ MonoBehaviour:
   moveDirection: {x: 0, y: 0, z: -1}
   zSpawnDepth: 20
   healthSystem: {fileID: 1691359650}
-  Score: 0
+  Score: {fileID: 11400000, guid: aa0f26d737077bc4087556177e63a7a9, type: 2}
 --- !u!4 &1512326926
 Transform:
   m_ObjectHideFlags: 0
