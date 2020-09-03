@@ -221,60 +221,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &701129331
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 701129333}
-  - component: {fileID: 701129332}
-  m_Layer: 0
-  m_Name: FMOD Test
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &701129332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 701129331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  Event: event:/Mask Removed
-  PlayEvent: 1
-  StopEvent: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
---- !u!4 &701129333
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 701129331}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &712187668
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,6 +286,60 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &848683136
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 848683138}
+  - component: {fileID: 848683137}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &848683137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848683136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Soundtrack
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!4 &848683138
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848683136}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1027989861
 GameObject:
@@ -437,6 +437,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027989861}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1033554441 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8043788171660340614, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+  m_PrefabInstance: {fileID: 8043788171216381839}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d106c9b21d23cfe44acf57c80aae74e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1512326924
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,6 +532,7 @@ MonoBehaviour:
   moveDirection: {x: 0, y: 0, z: -1}
   zSpawnDepth: 20
   healthSystem: {fileID: 1691359650}
+  reactionSystem: {fileID: 1033554441}
   Score: {fileID: 11400000, guid: aa0f26d737077bc4087556177e63a7a9, type: 2}
 --- !u!4 &1512326926
 Transform:
@@ -651,6 +663,171 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f195b19252023ea49a3b1fb6427c9f17, type: 3}
+--- !u!1001 &8043788171216381839
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8043788171660340614, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: reactions.Array.size
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340614, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: reactions.Array.data[5]
+      value: COVID IS A HOAX BY THE JEWS!!!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340614, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: reactions.Array.data[6]
+      value: stop this mask madness people die all the time
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340614, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: reactions.Array.data[7]
+      value: give us back our freedom! #UNMASKED
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340614, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: reactions.Array.data[8]
+      value: ADAM AND EVE NOT ADAM AND MASK.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340614, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: reactions.Array.data[9]
+      value: MASK = MUSLIM PROPAGANDA!!!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340614, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: reactions.Array.data[10]
+      value: Didn't protect me from pregnancy - At Abortion Clinic
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340614, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: reactions.Array.data[11]
+      value: A MASK attacked my CHILD! #screwmasks
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340614, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: reactions.Array.data[12]
+      value: Corinthians 4:2 We refuse to wear masks and play games.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340614, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: reactions.Array.data[13]
+      value: Spaghetti Meatballs Recipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340614, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: reactions.Array.data[14]
+      value: My wife left me for a mask
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340614, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: reactions.Array.data[15]
+      value: Free Antimask Hotline 555-GET-COVID
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340614, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: reactions.Array.data[16]
+      value: '- 1 mask, + 1 freedom!!!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340614, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: reactions.Array.data[17]
+      value: 'M A S K, M A S S murder!!! coincidence??? '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340614, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: reactions.Array.data[18]
+      value: Why is it MASK and not FEM? Antimask Pro Feminism!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340614, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: reactions.Array.data[19]
+      value: Uninstall mask.exe!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340614, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: reactions.Array.data[20]
+      value: No mask no problem :)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340616, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340616, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340616, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340616, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340616, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340616, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340616, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340616, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340616, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340616, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340616, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340616, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340616, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340616, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340616, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340616, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340616, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340616, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340616, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340616, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340616, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340620, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: m_Name
+      value: ReactionSystem
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
 --- !u!1001 &9219202808862165714
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     [Space]
     [Header("Health Visuals")]
     public HealthSystem healthSystem;
+    public ReactionSystem reactionSystem;
 
     public IntVariable Score;
 
@@ -61,6 +62,7 @@ public class GameManager : MonoBehaviour
                 GameObject tempTarget = hitInfo.collider.gameObject;
                 if (tempTarget.CompareTag("Positive"))
                 {
+                    PositiveFeedback();
                     SetMaskTarget(tempTarget);
                     prevPos = Input.mousePosition;
                     startPos = prevPos;
@@ -102,6 +104,7 @@ public class GameManager : MonoBehaviour
                         GameObject tempTarget = hitInfo.collider.gameObject;
                         if (tempTarget.CompareTag("Positive"))
                         {
+                            PositiveFeedback();
                             SetMaskTarget(tempTarget);
                             prevPos = touch.position;
                             startPos = prevPos;
@@ -278,6 +281,14 @@ public class GameManager : MonoBehaviour
         {
             //starts timer for spawning the people
             StartCoroutine(SpawnDelay());
+        }
+    }
+
+    public void PositiveFeedback()
+    {
+        if(Random.value > 0.25f)
+        {
+            reactionSystem.GetReaction();
         }
     }
 
