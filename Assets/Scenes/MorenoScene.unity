@@ -5172,7 +5172,7 @@ GameObject:
   - component: {fileID: 848683138}
   - component: {fileID: 848683137}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: BackgroundMusic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5433,36 +5433,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fb6c7c49f0b9d34885d5bc3662e200b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1775448097
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1775448098}
-  m_Layer: 0
-  m_Name: Vignette Controller
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1775448098
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1775448097}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2139818862
 GameObject:
   m_ObjectHideFlags: 0
@@ -5494,7 +5464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pools:
   - tag: Person
-    prefab: {fileID: 4406150621678647119, guid: 99ba5f9756d26ee4186e0085413dd372, type: 3}
+    prefab: {fileID: 426378076867540573, guid: b9360d3313b45c44a8e0bf16a3285510, type: 3}
     size: 20
 --- !u!4 &2139818864
 Transform:
