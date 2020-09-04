@@ -27,7 +27,7 @@ public class AnimateLungs : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
         dying = true;
         Sprite[] state = {alive, first1, first2, firstgone};
