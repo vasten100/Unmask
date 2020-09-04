@@ -14,8 +14,37 @@ public class HealthSystem : MonoBehaviour
     [Tooltip("low to high - highest gets disabled first")]public GameObject[] healthPartsVisuals;
     private WaitForSeconds timer;
 
+    //sprite animation images
+    public SpriteRenderer spriterenderer;
+
+    public Sprite alive;
+    public Sprite first1;
+    public Sprite first2;
+    public Sprite firstgone;
+
+    public Sprite second1;
+    public Sprite second2;
+    public Sprite second3;
+    public Sprite secondgone;
+
+    public Sprite death1;
+    public Sprite death2;
+
+    private int life1;
+    private int life2;
+    private int life3;
+
+    private int i;
+
+
     public void Start()
     {
+        life1 = 2;
+        life2 = 6;
+        life3 = 9;
+
+        i = 0;
+
         timer = new WaitForSeconds(damageFalloffTime);
         ResetHealth();
     }
@@ -27,22 +56,31 @@ public class HealthSystem : MonoBehaviour
     {
         currentHealth.ApplyChange(-1);
         //deactivates highest active object of the List
-        if(currentHealth.value < healthPartsVisuals.Length && currentHealth.value != 0)
-        {
-            healthPartsVisuals[currentHealth.value].SetActive(false);
-        }
+        
+            switch(currentHealth.value)
+            {
+                case 2:
+                    StartCoroutine(AnimateDamage(life1));
+                    break;
+                case 1:
+                    StartCoroutine(AnimateDamage(life2));
+                    break;
+                case 0:
+                    StartCoroutine(AnimateDamage(life3));
+                    break;
+            }
+            //healthPartsVisuals[currentHealth.value].SetActive(false);
+        
 
         UpdateVignettes();
         StartCoroutine(DisplayDamage());
 
         //change to end scene if health is 0
-        if(currentHealth.value == 0)
-        {
-            SceneManager.LoadScene("EndScene");
-        }
+        
         return currentHealth.value;
     }
 
+   
     /// <summary>
     /// resets Health to start Health and enables visuals
     /// </summary>
@@ -71,5 +109,54 @@ public class HealthSystem : MonoBehaviour
             damageVignette.weight -= damageFalloff;
             yield return timer;
         }
+    }
+
+
+    IEnumerator AnimateDamage(int num)
+    {
+        yield return new WaitForSecondsRealtime(0.5F);
+        while (i <= num)
+        {
+
+            switch (i)
+            {
+                case 0:
+                    spriterenderer.sprite = first1;
+                    break;
+                case 1:
+                    spriterenderer.sprite = first2;
+                    break;
+                case 2:
+                    spriterenderer.sprite = firstgone;
+                    break;
+                case 3:
+                    spriterenderer.sprite = second1;
+                    break;
+                case 4:
+                    spriterenderer.sprite = second2;
+                    break;
+                case 5:
+                    spriterenderer.sprite = second3;
+                    break;
+                case 6:
+                    spriterenderer.sprite = secondgone;
+                    break;
+                case 7:
+                    spriterenderer.sprite = death1;
+                    break;
+                case 8:
+                    spriterenderer.sprite = death2;
+                    break;
+                case 9:
+                    SceneManager.LoadScene("EndScene");
+                    break;
+            }
+            i++;
+
+
+            yield return new WaitForSecondsRealtime(0.2F);
+        }
+
+
     }
 }
