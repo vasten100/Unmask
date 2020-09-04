@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering.PostProcessing;
 
 public class HealthSystem : MonoBehaviour
 {
     public int startHealth = 3;
     public IntVariable currentHealth;
+    public PostProcessVolume baseVignette,damageVignette;
+    public float damageFalloffTime = 0.1f;
+    public float damageFalloff = 0.1f;
     [Tooltip("low to high - highest gets disabled first")]public GameObject[] healthPartsVisuals;
+    private WaitForSeconds timer;
 
     public void Start()
     {
+        timer = new WaitForSeconds(damageFalloffTime);
         ResetHealth();
     }
     /// <summary>
@@ -25,6 +31,10 @@ public class HealthSystem : MonoBehaviour
         {
             healthPartsVisuals[currentHealth.value].SetActive(false);
         }
+
+        UpdateVignettes();
+        StartCoroutine(DisplayDamage());
+
         //change to end scene if health is 0
         if(currentHealth.value == 0)
         {
@@ -39,9 +49,27 @@ public class HealthSystem : MonoBehaviour
     public void ResetHealth()
     {
         currentHealth.SetValue(startHealth);
+        UpdateVignettes();
         foreach (GameObject visuals in healthPartsVisuals)
         {
             visuals.SetActive(true);
+        }
+    }
+
+    public void UpdateVignettes()
+    {
+        float interpolationStep = (startHealth - currentHealth.value + 1.0f) / startHealth;
+        Debug.Log(currentHealth.value + " " + interpolationStep);
+        baseVignette.weight = interpolationStep;
+    }
+
+    public IEnumerator DisplayDamage()
+    {
+        damageVignette.weight = 1f;
+        while (damageVignette.weight > 0)
+        {
+            damageVignette.weight -= damageFalloff;
+            yield return timer;
         }
     }
 }
