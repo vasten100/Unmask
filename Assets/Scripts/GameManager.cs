@@ -323,7 +323,7 @@ public class GameManager : MonoBehaviour
     {
         ResetAllPeople();
         healthSystem.ResetHealth();
-        Score.SetValue(0);
+        //Score.SetValue(0);
         //TransitionToState(GameState.dead);
     }
 

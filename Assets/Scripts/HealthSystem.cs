@@ -35,10 +35,12 @@ public class HealthSystem : MonoBehaviour
     private int life3;
 
     private int i;
+    public GameObject canvasEnd;
 
 
     public void Start()
     {
+        canvasEnd.gameObject.SetActive(false);
         life1 = 2;
         life2 = 6;
         life3 = 9;
@@ -147,7 +149,8 @@ public class HealthSystem : MonoBehaviour
                     spriterenderer.sprite = death2;
                     break;
                 case 9:
-                    SceneManager.LoadScene("EndScene");
+                    // SceneManager.LoadScene("EndScene");
+                    canvasEnd.gameObject.SetActive(true);
                     break;
             }
             i++;
