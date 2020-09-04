@@ -10,6 +10,7 @@ public class PersonContainer : MonoBehaviour
     private Transform maskTransform;
     private Vector3 startMask;
     private Animator animator;
+    private Rigidbody rb;
 
     private int animMaskX = Animator.StringToHash("maskPositionX"),
         animMaskY = Animator.StringToHash("maskPositionY"),
@@ -23,6 +24,7 @@ public class PersonContainer : MonoBehaviour
         maskRb = tempMask.GetComponent<Rigidbody>();
         maskTransform = tempMask.transform;
         startMask = maskTransform.localPosition;
+        rb = GetComponent<Rigidbody>();
     }
     private void Awake()
     {
@@ -91,5 +93,12 @@ public class PersonContainer : MonoBehaviour
     public void NegativeReaction()
     {
         animator.SetBool(animFail, true);
+    }
+
+    public void Fall(Vector3 direction)
+    {
+        rb.AddForce(direction);
+        Vector3 rotationForce = new Vector3(0, 0, Random.Range(-1.0f, 1.0f));
+        rb.AddTorque(rotationForce);
     }
 }
