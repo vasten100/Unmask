@@ -758,10 +758,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 11400000, guid: 3c3a57ee9d7e78747b8494f410117a35, type: 2}
   image: {fileID: 1900646112}
-  alive: {fileID: -6004125058204386940, guid: 8883672b1cd7454459b9882545459fba, type: 3}
-  first1: {fileID: 6391428995623652554, guid: 8883672b1cd7454459b9882545459fba, type: 3}
-  first2: {fileID: 6581131349083563434, guid: 8883672b1cd7454459b9882545459fba, type: 3}
-  firstgone: {fileID: -1724066784914561612, guid: 8883672b1cd7454459b9882545459fba, type: 3}
+  alive: {fileID: -2509409704438842034, guid: 6c0962b094b0ff741bd44217635b6d2b, type: 3}
+  first1: {fileID: -4648594001580009657, guid: 6c0962b094b0ff741bd44217635b6d2b, type: 3}
+  first2: {fileID: 9053356037102085587, guid: 6c0962b094b0ff741bd44217635b6d2b, type: 3}
+  firstgone: {fileID: 337173020894317334, guid: 6c0962b094b0ff741bd44217635b6d2b, type: 3}
+  second1: {fileID: 7671078779260403301, guid: a09a3cc3b62f83d4c82e7449b4c1a2a2, type: 3}
+  second2: {fileID: 6743651056580673108, guid: a09a3cc3b62f83d4c82e7449b4c1a2a2, type: 3}
+  second3: {fileID: -5487248353250067998, guid: a09a3cc3b62f83d4c82e7449b4c1a2a2, type: 3}
+  secondgone: {fileID: -7743519466544836469, guid: a09a3cc3b62f83d4c82e7449b4c1a2a2, type: 3}
+  death1: {fileID: -6990081392350209015, guid: fe6d1718a9937c04e86484fd9aa24b1b, type: 3}
+  death2: {fileID: 6666295758765611894, guid: fe6d1718a9937c04e86484fd9aa24b1b, type: 3}
 --- !u!114 &1900646115
 MonoBehaviour:
   m_ObjectHideFlags: 0
