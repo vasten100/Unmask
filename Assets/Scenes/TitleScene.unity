@@ -456,6 +456,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afc40a0062de0b64fbe442fa4a96fcc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  credits: {fileID: 1185560062}
+  made: {fileID: 313804110}
 --- !u!114 &1275480886
 MonoBehaviour:
   m_ObjectHideFlags: 0
