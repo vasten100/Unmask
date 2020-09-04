@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour
 
     public PersonVisuals[] visuals;
 
-
     private GameObject currentTarget;
     private PersonContainer currentContainer;
     private bool isSpawning = false;
@@ -140,7 +139,11 @@ public class GameManager : MonoBehaviour
             }
         }
         #endregion
-        GameLoop();
+        if(currentState == GameState.inGame)
+        {
+            GameLoop();
+        }
+
         //StateUpdate(currentState);
     }
 
@@ -300,13 +303,14 @@ public class GameManager : MonoBehaviour
     {
         if(Random.value > 0.25f)
         {
-            reactionSystem.GetReaction();
+            reactionSystem.Like();
         }
     }
 
     public void NegativeFeedback()
     {
-        Debug.Log("Negative Feedback");
+        reactionSystem.Dislike();
+
         if(currentContainer != null)
         {
             currentContainer.NegativeReaction();
@@ -317,10 +321,12 @@ public class GameManager : MonoBehaviour
             ResetGame();
             //TransitionToState(GameState.dead);
         }
+
     }
 
     public void ResetGame()
     {
+        currentState = GameState.dead;
         ResetAllPeople();
         healthSystem.ResetHealth();
         //Score.SetValue(0);

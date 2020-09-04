@@ -103,8 +103,8 @@ public class PersonContainer : MonoBehaviour
     {
         rb.isKinematic = false;
         rb.useGravity = true;
-        rb.AddForce(direction * 2);
-        Vector3 rotationForce = new Vector3(0, 0, Random.Range(-5.0f, 5.0f));
+        rb.AddForce(direction * 50 + Vector3.up * 20);
+        Vector3 rotationForce = new Vector3(0, 0, Random.Range(-20.0f, 20.0f));
         rb.AddTorque(rotationForce);
     }
 }

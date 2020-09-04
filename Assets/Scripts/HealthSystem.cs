@@ -11,7 +11,7 @@ public class HealthSystem : MonoBehaviour
     public PostProcessVolume baseVignette,damageVignette;
     public float damageFalloffTime = 0.1f;
     public float damageFalloff = 0.1f;
-    [Tooltip("low to high - highest gets disabled first")]public GameObject[] healthPartsVisuals;
+
     private WaitForSeconds timer;
 
     //sprite animation images
@@ -90,10 +90,6 @@ public class HealthSystem : MonoBehaviour
     {
         currentHealth.SetValue(startHealth);
         UpdateVignettes();
-        foreach (GameObject visuals in healthPartsVisuals)
-        {
-            visuals.SetActive(true);
-        }
     }
 
     public void UpdateVignettes()
