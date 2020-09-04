@@ -48,8 +48,9 @@ public class PersonContainer : MonoBehaviour
     /// </summary>
     public void SetVisuals(PersonVisuals visuals)
     {
-        Head.sprite = visuals.startFace;
+        Debug.Log(visuals.ToString() +" " + gameObject.ToString());
         animator.runtimeAnimatorController = visuals.animatorOverrider;
+        Head.sprite = visuals.startFace;
     }
 
     /// <summary>
@@ -80,6 +81,9 @@ public class PersonContainer : MonoBehaviour
         animator.SetBool(animFail, false);
         animator.SetBool(animAfterDrag, false);
         if (maskTransform.localPosition == startMask) return false;
+        rb.isKinematic = true;
+        rb.useGravity = false;
+        rb.transform.rotation = Quaternion.identity;
         maskTransform.localPosition = startMask;
         maskTransform.rotation = Quaternion.identity;
         return true;
@@ -97,8 +101,10 @@ public class PersonContainer : MonoBehaviour
 
     public void Fall(Vector3 direction)
     {
-        rb.AddForce(direction);
-        Vector3 rotationForce = new Vector3(0, 0, Random.Range(-1.0f, 1.0f));
+        rb.isKinematic = false;
+        rb.useGravity = true;
+        rb.AddForce(direction * 2);
+        Vector3 rotationForce = new Vector3(0, 0, Random.Range(-5.0f, 5.0f));
         rb.AddTorque(rotationForce);
     }
 }

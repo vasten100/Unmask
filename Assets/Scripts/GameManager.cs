@@ -192,7 +192,6 @@ public class GameManager : MonoBehaviour
     public void AddPerson()
     {
         GameObject newPerson = objectPooler.SpawnFromPool("Person", new Vector3(Random.Range(-5,5),0,zSpawnDepth), Quaternion.identity);
-        newPerson.GetComponent<PersonContainer>().SetVisuals(visuals[Random.Range(0, visuals.Length-1)]);
         if (!activePeople.Contains(newPerson))
         {
             activePeople.Add(newPerson);
@@ -212,6 +211,7 @@ public class GameManager : MonoBehaviour
         PersonContainer container = person.GetComponent<PersonContainer>();
         if(container != null)
         {
+            container.SetVisuals(visuals[Random.Range(0, visuals.Length)]);
             if (!container.ResetMask() && container.isPositive)
             {
                 NegativeFeedback();
@@ -250,7 +250,6 @@ public class GameManager : MonoBehaviour
     {
         currentTarget = newTarget;
         currentContainer = currentTarget.GetComponentInParent<PersonContainer>();
-        Debug.Log(currentContainer);
         targetRb = newTarget.GetComponent<Rigidbody>();
         if (targetRb == null) return;
         if(!targetRb.isKinematic)
@@ -267,13 +266,14 @@ public class GameManager : MonoBehaviour
     public void RemoveMaskTarget()
     {
         currentTarget = null;
+        Vector3 velocity = (prevPos - startPos).normalized;
         if(currentContainer != null)
         {
             currentContainer.MaskGotDraged();
+            currentContainer.Fall(velocity * -velocityMultiplyer);
         }
         currentContainer = null;
         if (targetRb == null) return;
-        Vector3 velocity = (prevPos - startPos).normalized;
         targetRb.velocity += velocity * velocityMultiplyer;
         targetRb.isKinematic = false;
         targetRb.useGravity = true;
