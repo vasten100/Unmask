@@ -26,7 +26,7 @@ public class TitleScene : MonoBehaviour
 
     IEnumerator WaitAndLoadStart()
     {
-        yield return new WaitForSecondsRealtime(10);
+        yield return new WaitForSecondsRealtime(6);
         SceneManager.LoadScene("StartScreen");
     }
 }
