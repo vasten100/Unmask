@@ -23,6 +23,9 @@ public class PersonContainer : MonoBehaviour
         maskRb = tempMask.GetComponent<Rigidbody>();
         maskTransform = tempMask.transform;
         startMask = maskTransform.localPosition;
+    }
+    private void Awake()
+    {
         animator = GetComponent<Animator>();
     }
 
@@ -41,14 +44,10 @@ public class PersonContainer : MonoBehaviour
     /// <summary>
     /// not used Yet Should change Sprites
     /// </summary>
-    /// <param name="mask"></param>
-    /// <param name="head"></param>
-    /// <param name="body"></param>
-    public void SetVisuals(Sprite mask,Sprite head, Sprite body)
+    public void SetVisuals(PersonVisuals visuals)
     {
-        Mask.sprite = mask;
-        Head.sprite = head;
-        Body.sprite = body;
+        Head.sprite = visuals.startFace;
+        animator.runtimeAnimatorController = visuals.animatorOverrider;
     }
 
     /// <summary>

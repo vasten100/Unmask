@@ -5514,6 +5514,8 @@ MonoBehaviour:
   healthSystem: {fileID: 1691359650}
   reactionSystem: {fileID: 1033554441}
   Score: {fileID: 11400000, guid: aa0f26d737077bc4087556177e63a7a9, type: 2}
+  visuals:
+  - {fileID: 11400000, guid: 26155d6fba13e1649b779400071713af, type: 2}
 --- !u!4 &1512326926
 Transform:
   m_ObjectHideFlags: 0
