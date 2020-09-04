@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
 
 
     private GameObject currentTarget;
+    private PersonContainer currentContainer;
     private bool isSpawning = false;
     private Rigidbody targetRb;
     private Vector3 prevPos = Vector3.zero;
@@ -62,16 +63,16 @@ public class GameManager : MonoBehaviour
                 GameObject tempTarget = hitInfo.collider.gameObject;
                 if (tempTarget.CompareTag("Positive"))
                 {
-                    PositiveFeedback();
                     SetMaskTarget(tempTarget);
+                    PositiveFeedback();
                     prevPos = Input.mousePosition;
                     startPos = prevPos;
                     Score.ApplyChange(1);
                 }
                 else if (tempTarget.CompareTag("Negative"))
                 {
-                    NegativeFeedback();
                     SetMaskTarget(tempTarget);
+                    NegativeFeedback();
                     prevPos = Input.mousePosition;
                     startPos = prevPos;
                 }
@@ -104,16 +105,16 @@ public class GameManager : MonoBehaviour
                         GameObject tempTarget = hitInfo.collider.gameObject;
                         if (tempTarget.CompareTag("Positive"))
                         {
-                            PositiveFeedback();
                             SetMaskTarget(tempTarget);
+                            PositiveFeedback();
                             prevPos = touch.position;
                             startPos = prevPos;
                             Score.ApplyChange(1);
                         }
                         else if (tempTarget.CompareTag("Negative"))
                         {
-                            NegativeFeedback();
                             SetMaskTarget(tempTarget);
+                            NegativeFeedback();
                             prevPos = touch.position;
                             startPos = prevPos;
                         }
@@ -245,11 +246,14 @@ public class GameManager : MonoBehaviour
     public void SetMaskTarget(GameObject newTarget)
     {
         currentTarget = newTarget;
+        currentContainer = currentTarget.GetComponentInParent<PersonContainer>();
+        Debug.Log(currentContainer);
         targetRb = newTarget.GetComponent<Rigidbody>();
         if (targetRb == null) return;
         if(!targetRb.isKinematic)
         {
             currentTarget = null;
+            currentContainer = null;
         }
         targetRb.useGravity = false;
         targetRb.isKinematic = false;
@@ -260,6 +264,11 @@ public class GameManager : MonoBehaviour
     public void RemoveMaskTarget()
     {
         currentTarget = null;
+        if(currentContainer != null)
+        {
+            currentContainer.MaskGotDraged();
+        }
+        currentContainer = null;
         if (targetRb == null) return;
         Vector3 velocity = (prevPos - startPos).normalized;
         targetRb.velocity += velocity * velocityMultiplyer;
@@ -294,7 +303,12 @@ public class GameManager : MonoBehaviour
 
     public void NegativeFeedback()
     {
-        Debug.Log("Ups");
+        Debug.Log("Negative Feedback");
+        if(currentContainer != null)
+        {
+            currentContainer.NegativeReaction();
+        }
+
         if(healthSystem.TakeDamage() <= 0)
         {
             ResetGame();

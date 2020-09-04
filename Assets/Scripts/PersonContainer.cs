@@ -12,7 +12,9 @@ public class PersonContainer : MonoBehaviour
     private Animator animator;
 
     private int animMaskX = Animator.StringToHash("maskPositionX"),
-        animMaskY = Animator.StringToHash("maskPositionY");
+        animMaskY = Animator.StringToHash("maskPositionY"),
+        animAfterDrag = Animator.StringToHash("afterDrag"),
+        animFail = Animator.StringToHash("fail");
 
     // Start is called before the first frame update
     void Start()
@@ -74,9 +76,21 @@ public class PersonContainer : MonoBehaviour
     {
         maskRb.velocity = Vector3.zero;
         maskRb.isKinematic = true;
+        animator.SetBool(animFail, false);
+        animator.SetBool(animAfterDrag, false);
         if (maskTransform.localPosition == startMask) return false;
         maskTransform.localPosition = startMask;
         maskTransform.rotation = Quaternion.identity;
         return true;
+    }
+
+    public void MaskGotDraged()
+    {
+        animator.SetBool(animAfterDrag, true);
+    }
+
+    public void NegativeReaction()
+    {
+        animator.SetBool(animFail, true);
     }
 }

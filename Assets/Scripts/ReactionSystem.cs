@@ -8,7 +8,7 @@ public class ReactionSystem : MonoBehaviour
     public string[] reactions;
     public Text textbox;
     public float waitTime = 5f;
-    public ParticleSystem particleSystem;
+    public ParticleSystem partSystem;
     private Animator animator;
     private WaitForSeconds timer;
     private bool isDisplaying = false;
@@ -33,6 +33,11 @@ public class ReactionSystem : MonoBehaviour
         isDisplaying = true;
         textbox.text = reactions[(int)Random.Range(0, reactions.Length)];
         animator.SetBool(animPlayReaction,true);
+        if(partSystem != null)
+        {
+            partSystem.Play();
+        }
+
         yield return timer;
         animator.SetBool(animPlayReaction, false);
         isDisplaying = false;
