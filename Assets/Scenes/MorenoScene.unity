@@ -296,7 +296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3399598348504044356, guid: 5a74747ba01ceb94dbae34dde1e1712e, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3399598348504044359, guid: 5a74747ba01ceb94dbae34dde1e1712e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5321,6 +5321,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &874947079 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3399598348504044355, guid: 5a74747ba01ceb94dbae34dde1e1712e, type: 3}
+  m_PrefabInstance: {fileID: 559763573}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1027989861
 GameObject:
   m_ObjectHideFlags: 0
@@ -5729,6 +5734,10 @@ PrefabInstance:
       propertyPath: death2
       value: 
       objectReference: {fileID: 6666295758765611894, guid: fe6d1718a9937c04e86484fd9aa24b1b, type: 3}
+    - target: {fileID: 6420690004400534800, guid: f195b19252023ea49a3b1fb6427c9f17, type: 3}
+      propertyPath: canvasEnd
+      value: 
+      objectReference: {fileID: 874947079}
     - target: {fileID: 6420690004400534801, guid: f195b19252023ea49a3b1fb6427c9f17, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1
