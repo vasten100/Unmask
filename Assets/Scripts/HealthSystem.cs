@@ -97,7 +97,6 @@ public class HealthSystem : MonoBehaviour
     public void UpdateVignettes()
     {
         float interpolationStep = (startHealth - currentHealth.value + 1.0f) / startHealth;
-        Debug.Log(currentHealth.value + " " + interpolationStep);
         baseVignette.weight = interpolationStep;
     }
 

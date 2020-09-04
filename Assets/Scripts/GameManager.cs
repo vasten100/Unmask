@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
 
     public IntVariable Score;
 
+    public PersonVisuals[] visuals;
+
 
     private GameObject currentTarget;
     private PersonContainer currentContainer;
@@ -190,6 +192,7 @@ public class GameManager : MonoBehaviour
     public void AddPerson()
     {
         GameObject newPerson = objectPooler.SpawnFromPool("Person", new Vector3(Random.Range(-5,5),0,zSpawnDepth), Quaternion.identity);
+        newPerson.GetComponent<PersonContainer>().SetVisuals(visuals[Random.Range(0, visuals.Length-1)]);
         if (!activePeople.Contains(newPerson))
         {
             activePeople.Add(newPerson);
