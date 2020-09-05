@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.UI;
 
 public class HealthSystem : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class HealthSystem : MonoBehaviour
 
     //sprite animation images
     public SpriteRenderer spriterenderer;
+    public GameObject healthImage;
 
     public Sprite alive;
     public Sprite first1;
@@ -118,31 +120,31 @@ public class HealthSystem : MonoBehaviour
             switch (i)
             {
                 case 0:
-                    spriterenderer.sprite = first1;
+                    healthImage.GetComponent<Image>().sprite = first1;
                     break;
                 case 1:
-                    spriterenderer.sprite = first2;
+                    healthImage.GetComponent<Image>().sprite = first2;
                     break;
                 case 2:
-                    spriterenderer.sprite = firstgone;
+                    healthImage.GetComponent<Image>().sprite = firstgone;
                     break;
                 case 3:
-                    spriterenderer.sprite = second1;
+                    healthImage.GetComponent<Image>().sprite = second1;
                     break;
                 case 4:
-                    spriterenderer.sprite = second2;
+                    healthImage.GetComponent<Image>().sprite = second2;
                     break;
                 case 5:
-                    spriterenderer.sprite = second3;
+                    healthImage.GetComponent<Image>().sprite = second3;
                     break;
                 case 6:
-                    spriterenderer.sprite = secondgone;
+                    healthImage.GetComponent<Image>().sprite = secondgone;
                     break;
                 case 7:
-                    spriterenderer.sprite = death1;
+                    healthImage.GetComponent<Image>().sprite = death1;
                     break;
                 case 8:
-                    spriterenderer.sprite = death2;
+                    healthImage.GetComponent<Image>().sprite = death2;
                     break;
                 case 9:
                     // SceneManager.LoadScene("EndScene");
