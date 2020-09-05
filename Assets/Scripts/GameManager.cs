@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     public ReactionSystem reactionSystem;
 
     public IntVariable Score;
+    public InGameScore inGameScore;
 
     public PersonVisuals[] visuals;
 
@@ -70,6 +71,7 @@ public class GameManager : MonoBehaviour
                     prevPos = Input.mousePosition;
                     startPos = prevPos;
                     Score.ApplyChange(1);
+                    inGameScore.UpdateScore();
                 }
                 else if (tempTarget.CompareTag("Negative"))
                 {
@@ -112,6 +114,7 @@ public class GameManager : MonoBehaviour
                             prevPos = touch.position;
                             startPos = prevPos;
                             Score.ApplyChange(1);
+                            inGameScore.UpdateScore();
                         }
                         else if (tempTarget.CompareTag("Negative"))
                         {
