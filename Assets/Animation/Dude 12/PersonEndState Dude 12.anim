@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PersonEndState Dude13
+  m_Name: PersonEndState Dude 12
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -54,14 +54,14 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -2892028165160891051, guid: 6d5be49df8142c844a198c645f7f83d7, type: 3}
+      value: {fileID: -4709478815985453773, guid: c6a3ea7b9f04d274e81ba8ea7d4d32be, type: 3}
     attribute: m_Sprite
     path: Head
     classID: 212
     script: {fileID: 0}
   - curve:
     - time: 0
-      value: {fileID: -7705744948069916290, guid: 6d5be49df8142c844a198c645f7f83d7, type: 3}
+      value: {fileID: -8852545105354009535, guid: c6a3ea7b9f04d274e81ba8ea7d4d32be, type: 3}
     attribute: m_Sprite
     path: Body
     classID: 212
@@ -95,8 +95,8 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -2892028165160891051, guid: 6d5be49df8142c844a198c645f7f83d7, type: 3}
-    - {fileID: -7705744948069916290, guid: 6d5be49df8142c844a198c645f7f83d7, type: 3}
+    - {fileID: -4709478815985453773, guid: c6a3ea7b9f04d274e81ba8ea7d4d32be, type: 3}
+    - {fileID: -8852545105354009535, guid: c6a3ea7b9f04d274e81ba8ea7d4d32be, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
