@@ -61,11 +61,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3746682153242091306, guid: 99ba5f9756d26ee4186e0085413dd372, type: 3}
       propertyPath: m_Center.y
-      value: 0.62
+      value: 1.91
       objectReference: {fileID: 0}
     - target: {fileID: 3746682153242091306, guid: 99ba5f9756d26ee4186e0085413dd372, type: 3}
       propertyPath: m_Center.x
       value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746682153242091306, guid: 99ba5f9756d26ee4186e0085413dd372, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4406150621678647119, guid: 99ba5f9756d26ee4186e0085413dd372, type: 3}
       propertyPath: m_Name
@@ -123,6 +127,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.09
       objectReference: {fileID: 0}
+    - target: {fileID: 8024065528552333649, guid: 99ba5f9756d26ee4186e0085413dd372, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 04c9921332da0504ca5b9a489ed49204, type: 3}
     - target: {fileID: 8168787951109301545, guid: 99ba5f9756d26ee4186e0085413dd372, type: 3}
       propertyPath: m_Controller
       value: 
