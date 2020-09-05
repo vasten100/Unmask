@@ -10,8 +10,26 @@ AnimatorOverrideController:
   m_Controller: {fileID: 9100000, guid: 09e6f412510681e40877529657284ec2, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: 29662d3a3646d674e938d2a27d828332, type: 2}
+<<<<<<< HEAD
     m_OverrideClip: {fileID: 7400000, guid: 4cf3adeb5cb8b5648aa6df4cda0fc437, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 704a74832f82568448bff8425695a05f, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 4525097e4d779ba468a2454822a0a067, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 45037d44aeecd5e4e9751bbd2852921f, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: c4d27d41188afd34a95e22956c1e1ab8, type: 2}
+=======
+    m_OverrideClip: {fileID: 7400000, guid: 26919e9083f1a86489c7cbcc0eb1104e, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 704a74832f82568448bff8425695a05f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7979ffebd62b23d47bac0600cfd07d78, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 45037d44aeecd5e4e9751bbd2852921f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a1a997b6627d23942a3e26437a03a635, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d95c42fb39fa86641b92663c13d840c9, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 281f6158ea0c2ed4cb34f1296226cd8a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 17ac8c4e037fee849a0c1a1dddad573e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5d5dae9754898ff45899079230135bde, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 934c6520cc35e8a458fd7e310e832e16, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8968c0124c0189d4893d43551acf0336, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: bb0129c2d5534bb4a9186a401d6375fb, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a18f9a679f7e00f48a8ca5ab81e75c6b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 43d591d7a0e01094e86bcfc0bd5812c7, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9017a87ca34397c4281e620c5c7b7b2e, type: 2}
+>>>>>>> 95ad00e0ec5273160a1ea1a1ed994d73bd084484

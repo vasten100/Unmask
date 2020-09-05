@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     [Header("People Movement")]
     public Vector3 moveDirection = Vector3.forward;
     public float zSpawnDepth = 20f;
+    public AnimationCurve yheightOverDistance, scaleOverDistance;
     [Space]
     [Header("Health Visuals")]
     public HealthSystem healthSystem;
@@ -32,7 +33,6 @@ public class GameManager : MonoBehaviour
     public IntVariable Score;
 
     public PersonVisuals[] visuals;
-
 
     private GameObject currentTarget;
     private PersonContainer currentContainer;
@@ -140,7 +140,11 @@ public class GameManager : MonoBehaviour
             }
         }
         #endregion
-        GameLoop();
+        if(currentState == GameState.inGame)
+        {
+            GameLoop();
+        }
+
         //StateUpdate(currentState);
     }
 
@@ -153,7 +157,10 @@ public class GameManager : MonoBehaviour
         {
             GameObject person = activePeople[i];
             //movement of the people
-            person.transform.position += moveDirection * currentSpeed * Time.deltaTime;
+            Vector3 newPos = person.transform.position + (moveDirection * currentSpeed * Time.deltaTime);
+            newPos.y = yheightOverDistance.Evaluate(newPos.z);
+            person.transform.localScale = Vector3.one * scaleOverDistance.Evaluate(newPos.z);
+            person.transform.position = newPos;
             //check if out of Range
             if (person.transform.position.z < 0)
             {
@@ -192,7 +199,6 @@ public class GameManager : MonoBehaviour
     public void AddPerson()
     {
         GameObject newPerson = objectPooler.SpawnFromPool("Person", new Vector3(Random.Range(-5,5),0,zSpawnDepth), Quaternion.identity);
-        newPerson.GetComponent<PersonContainer>().SetVisuals(visuals[Random.Range(0, visuals.Length-1)]);
         if (!activePeople.Contains(newPerson))
         {
             activePeople.Add(newPerson);
@@ -212,6 +218,7 @@ public class GameManager : MonoBehaviour
         PersonContainer container = person.GetComponent<PersonContainer>();
         if(container != null)
         {
+            container.SetVisuals(visuals[Random.Range(0, visuals.Length)]);
             if (!container.ResetMask() && container.isPositive)
             {
                 NegativeFeedback();
@@ -250,7 +257,6 @@ public class GameManager : MonoBehaviour
     {
         currentTarget = newTarget;
         currentContainer = currentTarget.GetComponentInParent<PersonContainer>();
-        Debug.Log(currentContainer);
         targetRb = newTarget.GetComponent<Rigidbody>();
         if (targetRb == null) return;
         if(!targetRb.isKinematic)
@@ -267,13 +273,14 @@ public class GameManager : MonoBehaviour
     public void RemoveMaskTarget()
     {
         currentTarget = null;
+        Vector3 velocity = (prevPos - startPos).normalized;
         if(currentContainer != null)
         {
             currentContainer.MaskGotDraged();
+            currentContainer.Fall(velocity * -velocityMultiplyer);
         }
         currentContainer = null;
         if (targetRb == null) return;
-        Vector3 velocity = (prevPos - startPos).normalized;
         targetRb.velocity += velocity * velocityMultiplyer;
         targetRb.isKinematic = false;
         targetRb.useGravity = true;
@@ -300,13 +307,14 @@ public class GameManager : MonoBehaviour
     {
         if(Random.value > 0.25f)
         {
-            reactionSystem.GetReaction();
+            reactionSystem.Like();
         }
     }
 
     public void NegativeFeedback()
     {
-        Debug.Log("Negative Feedback");
+        reactionSystem.Dislike();
+
         if(currentContainer != null)
         {
             currentContainer.NegativeReaction();
@@ -317,10 +325,12 @@ public class GameManager : MonoBehaviour
             ResetGame();
             //TransitionToState(GameState.dead);
         }
+
     }
 
     public void ResetGame()
     {
+        currentState = GameState.dead;
         ResetAllPeople();
         healthSystem.ResetHealth();
         //Score.SetValue(0);

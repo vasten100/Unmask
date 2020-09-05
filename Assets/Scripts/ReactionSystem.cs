@@ -8,7 +8,7 @@ public class ReactionSystem : MonoBehaviour
     public string[] reactions;
     public Text textbox;
     public float waitTime = 5f;
-    public ParticleSystem partSystem;
+    public ParticleSystem positiveReaction,negativeReaction;
     private Animator animator;
     private WaitForSeconds timer;
     private bool isDisplaying = false;
@@ -20,8 +20,20 @@ public class ReactionSystem : MonoBehaviour
         timer = new WaitForSeconds(waitTime);
     }
 
-    public void GetReaction()
+    public void Dislike()
     {
+        if (negativeReaction != null)
+        {
+            negativeReaction.Play();
+        }
+    }
+
+    public void Like()
+    {
+        if (positiveReaction != null)
+        {
+            positiveReaction.Play();
+        }
         if (!isDisplaying)
         {
             StartCoroutine(ReactionCooldown());
@@ -33,9 +45,9 @@ public class ReactionSystem : MonoBehaviour
         isDisplaying = true;
         textbox.text = reactions[(int)Random.Range(0, reactions.Length)];
         animator.SetBool(animPlayReaction,true);
-        if(partSystem != null)
+        if(positiveReaction != null)
         {
-            partSystem.Play();
+            positiveReaction.Play();
         }
 
         yield return timer;

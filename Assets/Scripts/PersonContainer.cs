@@ -5,6 +5,7 @@ using UnityEngine;
 public class PersonContainer : MonoBehaviour
 {
     public SpriteRenderer Mask, Head, Body;
+    public MaskContainer goodMasks, badMasks;
     public bool isPositive;
     private Rigidbody maskRb;
     private Transform maskTransform;
@@ -48,8 +49,8 @@ public class PersonContainer : MonoBehaviour
     /// </summary>
     public void SetVisuals(PersonVisuals visuals)
     {
-        Head.sprite = visuals.startFace;
         animator.runtimeAnimatorController = visuals.animatorOverrider;
+        Head.sprite = visuals.startFace;
     }
 
     /// <summary>
@@ -62,12 +63,14 @@ public class PersonContainer : MonoBehaviour
         if (danger)
         {
             Mask.gameObject.tag = "Positive";
-            Mask.color = Color.blue;
+            //Mask.color = Color.blue;
+            Mask.sprite = goodMasks.GetVisual();
         }
         else
         {
             Mask.gameObject.tag = "Negative";
-            Mask.color = Color.red;
+            //Mask.color = Color.red;
+            Mask.sprite = badMasks.GetVisual();
         }
     }
     /// <summary>
@@ -80,6 +83,9 @@ public class PersonContainer : MonoBehaviour
         animator.SetBool(animFail, false);
         animator.SetBool(animAfterDrag, false);
         if (maskTransform.localPosition == startMask) return false;
+        rb.isKinematic = true;
+        rb.useGravity = false;
+        rb.transform.rotation = Quaternion.identity;
         maskTransform.localPosition = startMask;
         maskTransform.rotation = Quaternion.identity;
         return true;
@@ -97,8 +103,10 @@ public class PersonContainer : MonoBehaviour
 
     public void Fall(Vector3 direction)
     {
-        rb.AddForce(direction);
-        Vector3 rotationForce = new Vector3(0, 0, Random.Range(-1.0f, 1.0f));
+        rb.isKinematic = false;
+        rb.useGravity = true;
+        rb.AddForce(direction * 50 + Vector3.up * 20);
+        Vector3 rotationForce = new Vector3(0, 0, Random.Range(-20.0f, 20.0f));
         rb.AddTorque(rotationForce);
     }
 }

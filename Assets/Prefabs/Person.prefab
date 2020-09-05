@@ -111,7 +111,7 @@ Transform:
   m_GameObject: {fileID: 4406150621678647119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 7635022557486838742}
   - {fileID: 8455433863532896769}
@@ -132,7 +132,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Mask: {fileID: 8024065528552333649}
   Head: {fileID: 6730484355120240279}
-  Body: {fileID: 0}
+  Body: {fileID: 8687907232434015931}
+  goodMasks: {fileID: 11400000, guid: 3f600c7952f449f4eb5c5bcb55fb263b, type: 2}
+  badMasks: {fileID: 11400000, guid: e75dc26c1ae96344ebca50975af49c9c, type: 2}
   isPositive: 0
 --- !u!95 &8168787951109301545
 Animator:

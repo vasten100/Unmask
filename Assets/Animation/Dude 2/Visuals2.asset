@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d83ed81913089942a4df4780b4d2824, type: 3}
   m_Name: Visuals2
   m_EditorClassIdentifier: 
-  animatorOverrider: {fileID: 0}
-  startFace: {fileID: 0}
+  animatorOverrider: {fileID: 22100000, guid: 4b24ee092203ff34cbdaf4e0c375c1ac, type: 2}
+  startFace: {fileID: 7413705560956027396, guid: e3d7dbeb79575c24386637b19ef30550, type: 3}
