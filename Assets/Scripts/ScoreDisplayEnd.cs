@@ -29,10 +29,8 @@ public class ScoreDisplayEnd : MonoBehaviour
 
     IEnumerator increaceDeaths()
     {
-        Debug.Log("increasing deaths");
         while (deaths < score.value)
         {
-            Debug.Log("in if loop of increasing deaths");
             deaths += 1;
             if (deaths > score.value) deaths = score.value;
 

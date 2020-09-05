@@ -147,7 +147,6 @@ public class HealthSystem : MonoBehaviour
                     healthImage.GetComponent<Image>().sprite = death2;
                     break;
                 case 9:
-                    // SceneManager.LoadScene("EndScene");
                     canvasEnd.gameObject.SetActive(true);
                     break;
             }
