@@ -187,7 +187,10 @@ public class GameManager : MonoBehaviour
             currentTime += waitTime;
             //waits for set time
             yield return new WaitForSeconds(waitTime);
-            AddPerson();
+            if(currentState == GameState.inGame)
+            {
+                AddPerson();
+            }
         }
         isSpawning = false;
     }

@@ -275,11 +275,11 @@ MonoBehaviour:
   - Yes take that mask!
   - Epic!
   - I dieded becous maske. Please take them all.
-  - COVID IS A HOAX BY THE JEWS!!!
+  - Lol!
   - stop this mask madness people die all the time
   - give us back our freedom! #UNMASKED
   - ADAM AND EVE NOT ADAM AND MASK.
-  - MASK = MUSLIM PROPAGANDA!!!
+  - That hits hard!
   - Didn't protect me from pregnancy - At Abortion Clinic
   - A MASK attacked my CHILD! #screwmasks
   - Corinthians 4:2 We refuse to wear masks and play games.
@@ -293,6 +293,8 @@ MonoBehaviour:
   - No mask no problem :)
   textbox: {fileID: 8043788170360913948}
   waitTime: 5
+  positiveReaction: {fileID: 0}
+  negativeReaction: {fileID: 0}
 --- !u!95 &8043788171660340615
 Animator:
   serializedVersion: 3
