@@ -15,7 +15,8 @@ MonoBehaviour:
   Path: snapshot:/Death
   guid: 486ecbbdfa52ba4691e9bf3b18538f98
   Banks:
-  - {fileID: 4320627038877106424}
+  - {fileID: -6855436532165096932}
+  - {fileID: -1253701633092139081}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -23,6 +24,24 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &-6855436532165096932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Banks/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637349189357263369
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-3935183215617604023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38,7 +57,8 @@ MonoBehaviour:
   Path: event:/Cough
   guid: bdf9cb6b47bddb4daf309fa5a0ba139b
   Banks:
-  - {fileID: 4320627038877106424}
+  - {fileID: -6855436532165096932}
+  - {fileID: -1253701633092139081}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -46,6 +66,23 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2500
+--- !u!114 &-2705183331605947022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Soundtrack/health
+  m_EditorClassIdentifier: 
+  Name: health
+  Min: 0
+  Max: 3
+  Default: 3
+  Exists: 0
 --- !u!114 &-1900205518417247580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,15 +98,33 @@ MonoBehaviour:
   Path: event:/Soundtrack
   guid: 08a60090eb9e5946b940ea8825015e44
   Banks:
-  - {fileID: 4320627038877106424}
+  - {fileID: -6855436532165096932}
+  - {fileID: -1253701633092139081}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 6415352596783548669}
+  - {fileID: 2727289799642121450}
   MinDistance: 0
   MaxDistance: 0
   Length: 22073
+--- !u!114 &-1502354207928917119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/HealthPathing/health
+  m_EditorClassIdentifier: 
+  Name: health
+  Min: 0
+  Max: 3
+  Default: 3
+  Exists: 1
 --- !u!114 &-1448530374349361768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,7 +140,8 @@ MonoBehaviour:
   Path: event:/Menu
   guid: e3d8b5002495b94bac9f7e8ce0b5b157
   Banks:
-  - {fileID: 4320627038877106424}
+  - {fileID: -6855436532165096932}
+  - {fileID: -1253701633092139081}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -93,6 +149,24 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 21600
+--- !u!114 &-1253701633092139081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Banks/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637349189357263369
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-1191770726515315657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,7 +182,8 @@ MonoBehaviour:
   Path: event:/Walk
   guid: 235dc37dd8f7044983d9d75d844d42c6
   Banks:
-  - {fileID: 4320627038877106424}
+  - {fileID: -6855436532165096932}
+  - {fileID: -1253701633092139081}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -131,7 +206,8 @@ MonoBehaviour:
   Path: event:/Mask Removed
   guid: 9b8c9305b864bf4c9517e8abdfe9f9f4
   Banks:
-  - {fileID: 4320627038877106424}
+  - {fileID: -6855436532165096932}
+  - {fileID: -1253701633092139081}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -153,7 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 4008185299486136428}
-  - {fileID: 4320627038877106424}
+  - {fileID: -1253701633092139081}
   EditorEvents:
   - {fileID: -1900205518417247580}
   - {fileID: -1191770726515315657}
@@ -168,10 +244,10 @@ MonoBehaviour:
   - {fileID: -1448530374349361768}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 4320627038877106424}
+  - {fileID: -1253701633092139081}
   StringsBanks:
   - {fileID: 4008185299486136428}
-  stringsBankWriteTime: 637349190553061713
+  stringsBankWriteTime: 637349189357429472
   cacheVersion: 3
 --- !u!114 &2636825746286560396
 MonoBehaviour:
@@ -188,15 +264,33 @@ MonoBehaviour:
   Path: event:/HealthPathing
   guid: 5d501bf871057948be41dceade3d61ff
   Banks:
-  - {fileID: 4320627038877106424}
+  - {fileID: -6855436532165096932}
+  - {fileID: -1253701633092139081}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 4551888629697123215}
+  - {fileID: -1502354207928917119}
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &2727289799642121450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Soundtrack/health
+  m_EditorClassIdentifier: 
+  Name: health
+  Min: 0
+  Max: 3
+  Default: 3
+  Exists: 1
 --- !u!114 &2926508528445090420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +306,8 @@ MonoBehaviour:
   Path: event:/Wrong
   guid: 2d35e85db3a45d4c913a70cd0732ae15
   Banks:
-  - {fileID: 4320627038877106424}
+  - {fileID: -6855436532165096932}
+  - {fileID: -1253701633092139081}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -234,7 +329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Banks/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637349190553061713
+  lastModified: 637349189357429472
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -255,7 +350,8 @@ MonoBehaviour:
   Path: event:/Death
   guid: 73be77949769c24e8635fcca23895ee6
   Banks:
-  - {fileID: 4320627038877106424}
+  - {fileID: -6855436532165096932}
+  - {fileID: -1253701633092139081}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -313,7 +409,8 @@ MonoBehaviour:
   Path: event:/MessagePop
   guid: 3690ed9ab4aac144b80b9d0642030c41
   Banks:
-  - {fileID: 4320627038877106424}
+  - {fileID: -6855436532165096932}
+  - {fileID: -1253701633092139081}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -336,7 +433,8 @@ MonoBehaviour:
   Path: event:/Applause
   guid: b68814b4b202544a95634d376ca11dee
   Banks:
-  - {fileID: 4320627038877106424}
+  - {fileID: -6855436532165096932}
+  - {fileID: -1253701633092139081}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -361,3 +459,20 @@ MonoBehaviour:
   Max: 3
   Default: 3
   Exists: 1
+--- !u!114 &7388290552961877814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/HealthPathing/health
+  m_EditorClassIdentifier: 
+  Name: health
+  Min: 0
+  Max: 3
+  Default: 3
+  Exists: 0

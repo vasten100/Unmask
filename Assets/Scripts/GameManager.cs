@@ -205,6 +205,7 @@ public class GameManager : MonoBehaviour
     public void AddPerson()
     {
         GameObject newPerson = objectPooler.SpawnFromPool("Person", new Vector3(Random.Range(-5,5),0,zSpawnDepth), Quaternion.identity);
+        newPerson.GetComponent<PersonContainer>().SetVisuals(visuals[Random.Range(0, visuals.Length)]);
         if (!activePeople.Contains(newPerson))
         {
             activePeople.Add(newPerson);
@@ -224,12 +225,12 @@ public class GameManager : MonoBehaviour
         PersonContainer container = person.GetComponent<PersonContainer>();
         if(container != null)
         {
-            container.SetVisuals(visuals[Random.Range(0, visuals.Length)]);
             if (!container.ResetMask() && container.isPositive)
             {
                 NegativeFeedback();
             }
         }
+        person.transform.localScale = Vector3.zero;
         person.SetActive(false);
     }
 
