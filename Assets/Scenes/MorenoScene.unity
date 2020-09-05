@@ -15064,8 +15064,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027989861}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 30}
-  m_LocalScale: {x: 2.2182, y: 1, z: 3.7949824}
+  m_LocalPosition: {x: 0, y: 0, z: 35}
+  m_LocalScale: {x: 2.77714, y: 1.251979, z: 4.7512383}
   m_Children: []
   m_Father: {fileID: 519420032}
   m_RootOrder: 0
@@ -20344,7 +20344,7 @@ MonoBehaviour:
   pools:
   - tag: Person
     prefab: {fileID: 426378076867540573, guid: b9360d3313b45c44a8e0bf16a3285510, type: 3}
-    size: 2
+    size: 5
 --- !u!4 &2139818864
 Transform:
   m_ObjectHideFlags: 0

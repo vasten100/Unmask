@@ -16,9 +16,9 @@ public class TitleScene : MonoBehaviour
         if(Screen.width < 1400)
         {
             Text madeBy = made.GetComponent<Text>();
-            madeBy.fontSize = 80;
+            madeBy.fontSize = 60;
             Text names = credits.GetComponent<Text>();
-            names.fontSize = 80;
+            names.fontSize = 60;
         }
     }
 
