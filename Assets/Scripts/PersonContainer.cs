@@ -49,6 +49,7 @@ public class PersonContainer : MonoBehaviour
     /// </summary>
     public void SetVisuals(PersonVisuals visuals)
     {
+        if (visuals == null) return;
         animator.runtimeAnimatorController = visuals.animatorOverrider;
         Head.sprite = visuals.startFace;
     }
