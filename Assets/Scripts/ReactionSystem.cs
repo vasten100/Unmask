@@ -13,6 +13,9 @@ public class ReactionSystem : MonoBehaviour
     private WaitForSeconds timer;
     private bool isDisplaying = false;
 
+    [FMODUnity.EventRef]
+    public string negativeSound;
+
     private int animPlayReaction = Animator.StringToHash("newReaction");
     private void Start()
     {
@@ -26,6 +29,7 @@ public class ReactionSystem : MonoBehaviour
         {
             negativeReaction.Play();
         }
+        FMODUnity.RuntimeManager.PlayOneShot(negativeSound, transform.position);
     }
 
     public void Like()

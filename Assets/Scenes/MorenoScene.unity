@@ -20531,6 +20531,10 @@ PrefabInstance:
       propertyPath: negativeReaction
       value: 
       objectReference: {fileID: 639218334}
+    - target: {fileID: 8043788171660340614, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: negativeSound
+      value: event:/Wrong
+      objectReference: {fileID: 0}
     - target: {fileID: 8043788171660340616, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
