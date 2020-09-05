@@ -132,7 +132,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Mask: {fileID: 8024065528552333649}
   Head: {fileID: 6730484355120240279}
-  Body: {fileID: 0}
+  Body: {fileID: 8687907232434015931}
+  goodMasks: {fileID: 11400000, guid: 3f600c7952f449f4eb5c5bcb55fb263b, type: 2}
+  badMasks: {fileID: 11400000, guid: e75dc26c1ae96344ebca50975af49c9c, type: 2}
   isPositive: 0
 --- !u!95 &8168787951109301545
 Animator:

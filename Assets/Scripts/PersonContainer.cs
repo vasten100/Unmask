@@ -5,6 +5,7 @@ using UnityEngine;
 public class PersonContainer : MonoBehaviour
 {
     public SpriteRenderer Mask, Head, Body;
+    public MaskContainer goodMasks, badMasks;
     public bool isPositive;
     private Rigidbody maskRb;
     private Transform maskTransform;
@@ -48,7 +49,6 @@ public class PersonContainer : MonoBehaviour
     /// </summary>
     public void SetVisuals(PersonVisuals visuals)
     {
-        Debug.Log(visuals.ToString() +" " + gameObject.ToString());
         animator.runtimeAnimatorController = visuals.animatorOverrider;
         Head.sprite = visuals.startFace;
     }
@@ -63,12 +63,14 @@ public class PersonContainer : MonoBehaviour
         if (danger)
         {
             Mask.gameObject.tag = "Positive";
-            Mask.color = Color.blue;
+            //Mask.color = Color.blue;
+            Mask.sprite = goodMasks.GetVisual();
         }
         else
         {
             Mask.gameObject.tag = "Negative";
-            Mask.color = Color.red;
+            //Mask.color = Color.red;
+            Mask.sprite = badMasks.GetVisual();
         }
     }
     /// <summary>

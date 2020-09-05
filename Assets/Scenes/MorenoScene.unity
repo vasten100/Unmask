@@ -5111,6 +5111,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndScene
       objectReference: {fileID: 0}
+    - target: {fileID: 3399598348504044355, guid: 5a74747ba01ceb94dbae34dde1e1712e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3399598348504044356, guid: 5a74747ba01ceb94dbae34dde1e1712e, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -15103,20 +15107,20 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 3.5004883
-      inSlope: 0.09642379
-      outSlope: 0.09642379
+      inSlope: 0.26151136
+      outSlope: 0.26151136
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.09320905
+      outWeight: 0.043275636
     - serializedVersion: 3
       time: 120
       value: 20
-      inSlope: 0.4723699
-      outSlope: 0.4723699
+      inSlope: 0.2145552
+      outSlope: 0.2145552
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.072902806
+      inWeight: 0.071238324
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -15126,16 +15130,16 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 3
-      inSlope: 0
-      outSlope: 0
+      value: 2.5
+      inSlope: -0.006751478
+      outSlope: -0.006751478
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.2561132
     - serializedVersion: 3
       time: 60
-      value: 2
+      value: 1
       inSlope: -0.0069480063
       outSlope: -0.0069480063
       tangentMode: 0
@@ -15148,6 +15152,54 @@ MonoBehaviour:
   cooldownRange: 2
   moveDirection: {x: 0, y: 0, z: -1}
   zSpawnDepth: 20
+  yheightOverDistance:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: -0.0068604136
+      outSlope: -0.0068604136
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.23566656
+    - serializedVersion: 3
+      time: 20
+      value: 10
+      inSlope: 1.1534121
+      outSlope: 1.1534121
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.051264953
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  scaleOverDistance:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 2
+      inSlope: -0.0068604136
+      outSlope: -0.0068604136
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.23566656
+    - serializedVersion: 3
+      time: 20
+      value: 1
+      inSlope: -0.14629155
+      outSlope: -0.14629155
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.15059976
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   healthSystem: {fileID: 1691359650}
   reactionSystem: {fileID: 1033554441}
   Score: {fileID: 11400000, guid: aa0f26d737077bc4087556177e63a7a9, type: 2}
@@ -20375,6 +20427,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8043788171660340616, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340618, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340618, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 2960
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340618, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1440
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043788171660340618, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}
+      propertyPath: m_MatchWidthOrHeight
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8043788171660340620, guid: dde0606fadea6e94a9ae6ae032b85b6c, type: 3}

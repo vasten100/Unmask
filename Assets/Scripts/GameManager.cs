@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     [Header("People Movement")]
     public Vector3 moveDirection = Vector3.forward;
     public float zSpawnDepth = 20f;
+    public AnimationCurve yheightOverDistance, scaleOverDistance;
     [Space]
     [Header("Health Visuals")]
     public HealthSystem healthSystem;
@@ -156,7 +157,10 @@ public class GameManager : MonoBehaviour
         {
             GameObject person = activePeople[i];
             //movement of the people
-            person.transform.position += moveDirection * currentSpeed * Time.deltaTime;
+            Vector3 newPos = person.transform.position + (moveDirection * currentSpeed * Time.deltaTime);
+            newPos.y = yheightOverDistance.Evaluate(newPos.z);
+            person.transform.localScale = Vector3.one * scaleOverDistance.Evaluate(newPos.z);
+            person.transform.position = newPos;
             //check if out of Range
             if (person.transform.position.z < 0)
             {
