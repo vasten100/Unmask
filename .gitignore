@@ -71,3 +71,4 @@ sysinfo.txt
 crashlytics-build.properties
 
 Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
+fmod_editor.log
