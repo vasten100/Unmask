@@ -31,7 +31,6 @@ public class AnimateLungs : MonoBehaviour
     {
         dying = true;
         Sprite[] state = {alive, first1, first2, firstgone};
-        Debug.Log("state 1 = " + state[1]);
 
         StartCoroutine(ChangeLungState());
 
