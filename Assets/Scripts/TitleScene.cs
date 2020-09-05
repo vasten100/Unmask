@@ -13,13 +13,7 @@ public class TitleScene : MonoBehaviour
     void Start()
     {
         StartCoroutine(WaitAndLoadStart());
-        if(Screen.width < 1400)
-        {
-            Text madeBy = made.GetComponent<Text>();
-            madeBy.fontSize = 60;
-            Text names = credits.GetComponent<Text>();
-            names.fontSize = 60;
-        }
+        
     }
 
 
